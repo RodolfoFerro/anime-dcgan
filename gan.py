@@ -8,7 +8,7 @@ from tensorflow.keras.models import Sequential, Model, load_model
 from tensorflow.keras.optimizers import Adam
 
 
-def build_generator(seed_size):
+def build_generator(seed_size=128):
     """
     Builds the generator model
     
@@ -48,7 +48,7 @@ def build_generator(seed_size):
     return model
 
 
-def build_discriminator(image_length,image_channels):
+def build_discriminator(image_length=64, image_channels=3):
     
     """
     Builds the generator model
@@ -97,7 +97,7 @@ class DCGAN(tf.keras.Model):
     """Subclass of the keras.Model class to define custom training step and loss functions"""
     
     
-    def __init__(self,seed_size,image_length,image_channels,**kwargs):
+    def __init__(self, seed_size=128, image_length=64, image_channels=3,**kwargs):
         """
         Parameters:
             seed_size: size of the random vector for the generator
@@ -127,7 +127,7 @@ class DCGAN(tf.keras.Model):
 
        
         # smooth parameter is used to induce one sided label smoothing. It can be tuned accordingly
-    def discriminator_loss(self,real_output, fake_output,smooth=0.1):
+    def discriminator_loss(self, real_output, fake_output,smooth=0.1):
         """
         Parameters: 
             real_output: Tensor containing the respective discriminator's predictions for the batch of images taken from
@@ -144,7 +144,7 @@ class DCGAN(tf.keras.Model):
         total_loss = real_loss + fake_loss
         return total_loss
     
-    def compile(self,generator_optimizer,discriminator_optimizer):
+    def compile(self, generator_optimizer, discriminator_optimizer):
         """
         configures model for training by adding optimizers
         
