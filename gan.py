@@ -7,6 +7,8 @@ from tensorflow.keras.layers import Conv2D ,Conv2DTranspose
 from tensorflow.keras.models import Sequential, Model, load_model
 from tensorflow.keras.optimizers import Adam
 
+import matplotlib.pyplot as plt
+
 
 init = tf.keras.initializers.RandomNormal(stddev=0.02)
 
