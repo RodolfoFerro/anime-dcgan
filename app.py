@@ -27,6 +27,6 @@ st.markdown(
 )
 
 if st.button("Crear waifu"):
-    fig = generate_faces()
+    fig = generate_faces(dcgan)
     st.pyplot(fig)
     st.write('Imagen generada por una DCGAN.')
