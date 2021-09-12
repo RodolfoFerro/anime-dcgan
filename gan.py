@@ -8,6 +8,9 @@ from tensorflow.keras.models import Sequential, Model, load_model
 from tensorflow.keras.optimizers import Adam
 
 
+init = tf.keras.initializers.RandomNormal(stddev=0.02)
+
+
 def build_generator(seed_size=128):
     """
     Builds the generator model
